@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 
-import Header from "@/components/header";
+import Header from "@/components/layout/header";
 
 import "./globals.css";
 
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable} antialiased`}>
-        <div className="min-h-screen bg-gray-900 text-white flex flex-col">
+        <div className="min-h-screen bg-background text-foreground flex flex-col">
           <Header />
           {children}
         </div>
