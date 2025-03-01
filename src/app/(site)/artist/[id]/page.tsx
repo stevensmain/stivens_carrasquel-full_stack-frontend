@@ -1,7 +1,9 @@
+import { Suspense } from "react";
 import Image from "next/image";
 
 import { getArtist } from "@/services/artists";
-import ArtistAlbumList from "@/components/artist/artist-album-list";
+import AlbumListSection from "@/components/album/album-list-section";
+import AlbumListSkeleton from "@/components/album/album-list-skeleton";
 
 export default async function ArtistPage({
   params,
@@ -17,13 +19,13 @@ export default async function ArtistPage({
 
   return (
     <>
-      <section className="flex gap-14 mb-28">
+      <section className="flex flex-col gap-7 mb-14 md:gap-14 md:flex-row md:mb-28">
         <Image
           src={images[0].url ?? ""}
           width={images[0].width}
           height={images[0].height}
           alt="Artist"
-          className="rounded-full w-60 aspect-square"
+          className="rounded-full w-40 aspect-square md:w-60"
         />
 
         <div className="text-left">
@@ -36,7 +38,9 @@ export default async function ArtistPage({
 
       <h3 className="text-left">Guarda tus álbumes favoritos de {name}</h3>
 
-      <ArtistAlbumList id={id} page={page} />
+      <Suspense fallback={<AlbumListSkeleton />}>
+        <AlbumListSection id={id} page={page} />
+      </Suspense>
     </>
   );
 }

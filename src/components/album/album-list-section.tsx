@@ -1,13 +1,13 @@
 import { getArtistAlbums } from "@/services/albums";
 import Pagination from "../ui/pagination";
-import AlbumList from "../album/album-list";
+import AlbumList from "./album-list";
 
-interface ArtistAlbumListProps {
+interface AlbumListSectionProps {
   id: string;
   page: number;
 }
 
-const ArtistAlbumList = async ({ id, page }: ArtistAlbumListProps) => {
+const AlbumListSection = async ({ id, page }: AlbumListSectionProps) => {
   try {
     const { items, limit, total } = await getArtistAlbums({ id, page });
 
@@ -29,4 +29,4 @@ const ArtistAlbumList = async ({ id, page }: ArtistAlbumListProps) => {
   }
 };
 
-export default ArtistAlbumList;
+export default AlbumListSection;
