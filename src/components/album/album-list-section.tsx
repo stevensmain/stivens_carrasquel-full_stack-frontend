@@ -22,7 +22,8 @@ const AlbumListSection = async ({ id, page }: AlbumListSectionProps) => {
         <Pagination currentPage={page} totalPages={Math.floor(total / limit)} />
       </>
     );
-  } catch (error: any) {
+  } catch (error) {
+    console.error(error);
     return (
       <p className="mt-20">Ocurrió un error inesperado. Inténtalo más tarde</p>
     );

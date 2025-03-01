@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface ArtistCardProps {
   name: string;
   followers: number;
@@ -7,7 +9,7 @@ interface ArtistCardProps {
 const ArtistCard = ({ name, followers, image }: ArtistCardProps) => {
   return (
     <div className="flex flex-col gap-6 p-6 rounded-3xl text-left hover:bg-primary hover:text-primary-foreground">
-      <img
+      <Image
         src={image}
         alt={name}
         className="rounded-xl w-full h-60 object-cover"

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Album } from "@/types/albums";
 import SaveAlbumButton from "./save-album-button";
 
@@ -10,7 +12,7 @@ const AlbumCard = ({ album }: AlbumCardProps) => {
 
   return (
     <div className="group flex flex-col gap-6 p-6 rounded-3xl text-left">
-      <img
+      <Image
         src={images[0].url ?? "/placeholder.jpg"}
         alt={name}
         className="rounded-xl w-full h-60 object-cover"

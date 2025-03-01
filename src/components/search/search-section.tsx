@@ -29,7 +29,7 @@ const SearchSection = async ({ q, page }: SearchSectionProps) => {
         <Pagination currentPage={page} totalPages={Math.floor(total / limit)} />
       </>
     );
-  } catch (error: any) {
+  } catch (error) {
     if (axios.isAxiosError(error)) {
       if (error.response?.status === 400) {
         return (
