@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import Image from "next/image";
+import { Check } from "lucide-react";
 
 import { getArtist } from "@/services/artists";
 import AlbumListSection from "@/components/album/album-list-section";
@@ -29,7 +30,12 @@ export default async function ArtistPage({
         />
 
         <div className="text-left">
-          <p className="font-semibold">Artista certificado</p>
+          <div className="inline-flex items-center gap-3.5">
+            <div className="w-6 h-6 bg-[#619CED] rounded-full grid place-items-center">
+              <Check className="w-3.5 h-4.5" />
+            </div>
+            <p className="font-semibold">Artista certificado</p>
+          </div>
           <h2 className="text-[64px] font-bold">{name}</h2>
           <p>Followers: {followers.total}</p>
           <p>Oyentes mensuales: {popularity}</p>

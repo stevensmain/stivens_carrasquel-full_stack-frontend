@@ -1,8 +1,8 @@
+import axios from "axios";
 import { searchArtist } from "@/services/search";
 
 import Pagination from "../ui/pagination";
 import ArtistList from "@/components/artist/artist-list";
-import axios from "axios";
 
 interface SearchSectionProps {
   q: string;
@@ -15,7 +15,7 @@ const SearchSection = async ({ q, page }: SearchSectionProps) => {
 
     return (
       <>
-        <p className="text-foreground text-left mt-11 md:mt-20">
+        <p className="text-left mt-11 md:mt-20">
           Mostrando resultados {offset + 1} - {Math.min(offset + limit, total)}{" "}
           de {total} resultados
         </p>
@@ -23,7 +23,7 @@ const SearchSection = async ({ q, page }: SearchSectionProps) => {
         {items.length > 0 ? (
           <ArtistList artists={items} />
         ) : (
-          <p className="text-foreground mt-20">No hay resultados disponibles</p>
+          <p className="mt-20">No hay resultados disponibles</p>
         )}
 
         <Pagination currentPage={page} totalPages={Math.floor(total / limit)} />
@@ -33,16 +33,12 @@ const SearchSection = async ({ q, page }: SearchSectionProps) => {
     if (axios.isAxiosError(error)) {
       if (error.response?.status === 400) {
         return (
-          <p className="text-foreground mt-20">
-            Por favor, ingresa un término de búsqueda
-          </p>
+          <p className="mt-20">Por favor, ingresa un término de búsqueda</p>
         );
       }
     }
     return (
-      <p className="text-foreground mt-20">
-        Ocurrió un error inesperado. Inténtalo más tarde
-      </p>
+      <p className="mt-20">Ocurrió un error inesperado. Inténtalo más tarde</p>
     );
   }
 };

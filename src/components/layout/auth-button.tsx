@@ -1,6 +1,7 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, LogOut } from "lucide-react";
 
 import { auth, signIn, signOut } from "@auth";
+import { Button } from "../ui/button";
 
 const AuthButton = async () => {
   const session = await auth();
@@ -13,12 +14,17 @@ const AuthButton = async () => {
           await signOut({ redirectTo: "http://localhost:3000/login" });
         }}
       >
-        <button
-          className="text-foreground hover:text-foreground/80"
+        <Button
+          className="hidden md:flex"
+          variant="link"
+          size="sm"
           type="submit"
         >
           Cerrar sesión
-        </button>
+        </Button>
+        <Button className="md:hidden" variant="link" size="icon" type="submit">
+          <LogOut className="w-6 h-6" />
+        </Button>
       </form>
     );
   }
@@ -31,7 +37,7 @@ const AuthButton = async () => {
       }}
     >
       <button
-        className="mt-9 md:mt-24 flex items-center justify-start gap-2 text-foreground text-base font-medium hover:underline"
+        className="mt-9 flex items-center justify-start gap-2 hover:underline md:mt-24"
         type="submit"
       >
         Log in con Spotify <ArrowRight className="w-5 h-5" />

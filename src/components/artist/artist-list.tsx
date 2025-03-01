@@ -1,13 +1,13 @@
-import { Artist } from "@/types/search";
-
-import ArtistCard from "./artist-card";
 import Link from "next/link";
+
+import { Artist } from "@/types/artists";
+import ArtistCard from "./artist-card";
 
 interface ArtistListProps {
   artists: Artist[];
 }
 
-export default function ArtistList({ artists }: ArtistListProps) {
+const ArtistList = ({ artists }: ArtistListProps) => {
   return (
     <div className="grid grid-cols-1 my-4 md:grid-cols-2 md:mt-7 md:mb-14 lg:grid-cols-4">
       {artists.map((artist) => (
@@ -25,4 +25,6 @@ export default function ArtistList({ artists }: ArtistListProps) {
       ))}
     </div>
   );
-}
+};
+
+export default ArtistList;

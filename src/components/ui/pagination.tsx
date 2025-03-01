@@ -45,10 +45,9 @@ const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
         variant="ghost"
         size="icon"
         disabled={currentPage === 1}
-        className="hover:bg-transparent hover:text-foreground/80"
         onClick={() => handlePageChange(currentPage - 1)}
       >
-        <ChevronLeft className="w-4 h-4 text-foreground" />
+        <ChevronLeft className="w-4 h-4" />
       </Button>
 
       {getPages().map((page, index) =>
@@ -57,16 +56,13 @@ const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
             key={index}
             variant="ghost"
             disabled={page === currentPage}
-            className={cn(
-              "w-8 h-8 hover:bg-transparent hover:text-foreground/80",
-              page === currentPage ? "text-primary" : "text-foreground"
-            )}
+            className={cn("w-8 h-8", page === currentPage && "text-primary")}
             onClick={() => handlePageChange(page)}
           >
             {page}
           </Button>
         ) : (
-          <span key={index} className="text-foreground px-2">
+          <span key={index} className="px-2">
             {page}
           </span>
         )
@@ -76,10 +72,9 @@ const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
         variant="ghost"
         size="icon"
         disabled={currentPage === totalPages}
-        className="hover:bg-transparent hover:text-foreground/80"
         onClick={() => handlePageChange(currentPage + 1)}
       >
-        <ChevronRight className="w-4 h-4 text-foreground" />
+        <ChevronRight className="w-4 h-4" />
       </Button>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 interface NavLinkProps {
   href: string;
@@ -15,9 +16,10 @@ const NavLink = ({ href, label }: NavLinkProps) => {
   return (
     <Link
       href={href}
-      className={`hover:text-foreground/80 ${
-        isActive ? "text-primary font-semibold" : "text-foreground"
-      }`}
+      className={cn(
+        "hover:text-foreground/80",
+        isActive && "text-primary font-semibold"
+      )}
     >
       {label}
     </Link>

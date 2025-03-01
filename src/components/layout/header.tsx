@@ -19,7 +19,7 @@ const Header = async () => {
         <nav className="flex items-center gap-x-6 text-sm">
           <NavLink href="/" label="Buscar" />
           <NavLink href="/albums" label="Mis álbumes" />
-          <span className="text-foreground">|</span>
+          <span>|</span>
           <AuthButton />
         </nav>
       )}

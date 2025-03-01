@@ -36,7 +36,7 @@ const SearchBar = () => {
       />
       <Button
         type="submit"
-        className="bg-primary text-primary-foreground py-6 px-12 rounded-3xl font-semibold text-base absolute right-2 top-3/6 -translate-y-3/6"
+        className="absolute right-2 top-3/6 -translate-y-3/6"
       >
         Buscar
       </Button>

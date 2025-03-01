@@ -4,13 +4,9 @@ interface ArtistCardProps {
   image: string;
 }
 
-export default function ArtistCard({
-  name,
-  followers,
-  image,
-}: ArtistCardProps) {
+const ArtistCard = ({ name, followers, image }: ArtistCardProps) => {
   return (
-    <div className="flex flex-col gap-6 p-6 rounded-3xl text-left text-foreground hover:bg-primary hover:text-primary-foreground">
+    <div className="flex flex-col gap-6 p-6 rounded-3xl text-left hover:bg-primary hover:text-primary-foreground">
       <img
         src={image}
         alt={name}
@@ -22,4 +18,6 @@ export default function ArtistCard({
       </p>
     </div>
   );
-}
+};
+
+export default ArtistCard;

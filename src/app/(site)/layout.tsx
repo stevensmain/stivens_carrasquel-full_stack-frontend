@@ -10,5 +10,9 @@ export default async function SiteLayout({
 
   if (!session) redirect("/login");
 
-  return <>{children}</>;
+  return (
+    <div className="container mx-auto px-8 py-11 text-left md:px-12 md:py-20 md:text-center">
+      {children}
+    </div>
+  );
 }

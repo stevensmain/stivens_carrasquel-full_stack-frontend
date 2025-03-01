@@ -15,7 +15,7 @@ const HeroSection = () => {
             <span className="text-primary">mejor música</span>
           </h2>
 
-          <p className="text-foreground mt-7 md:mt-9 text-base max-w-[347px]">
+          <p className="mt-7 md:mt-9 text-base max-w-[347px]">
             Accede a tu cuenta para guardar tus álbumes favoritos.
           </p>
 
