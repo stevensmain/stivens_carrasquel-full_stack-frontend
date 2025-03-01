@@ -1,8 +1,8 @@
 import axios, { InternalAxiosRequestConfig } from "axios";
 import axiosRetry from "axios-retry";
 
-const SPOTIFY_BASE_URL = "https://api.spotify.com/v1";
-const SPOTIFY_AUTH_URL = "https://accounts.spotify.com/api/token";
+const SPOTIFY_BASE_URL = process.env.SPOTIFY_BASE_URL;
+const SPOTIFY_AUTH_URL = process.env.SPOTIFY_AUTH_URL;
 
 let cachedToken: { token: string; expiresAt: number } | null = null;
 
@@ -12,6 +12,14 @@ const getAccessToken = async (): Promise<string> => {
 
   if (!clientId || !clientSecret) {
     throw new Error("Missing Spotify API credentials");
+  }
+
+  if (!SPOTIFY_AUTH_URL) {
+    throw new Error("Missing Spotify Auth URL");
+  }
+
+  if (!SPOTIFY_BASE_URL) {
+    throw new Error("Missing Spotify Base URL");
   }
 
   const now = Date.now();

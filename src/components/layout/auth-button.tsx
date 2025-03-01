@@ -11,7 +11,9 @@ const AuthButton = async () => {
       <form
         action={async () => {
           "use server";
-          await signOut({ redirectTo: "http://localhost:3000/login" });
+          await signOut({
+            redirectTo: process.env.NEXT_PUBLIC_REDIRECT_LOGIN_URL,
+          });
         }}
       >
         <Button
@@ -33,7 +35,9 @@ const AuthButton = async () => {
     <form
       action={async () => {
         "use server";
-        await signIn("spotify", { redirectTo: "http://localhost:3000/" });
+        await signIn("spotify", {
+          redirectTo: process.env.NEXT_PUBLIC_REDIRECT_URL,
+        });
       }}
     >
       <button
